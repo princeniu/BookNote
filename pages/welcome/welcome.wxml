@@ -1,0 +1,35 @@
+<view class="page">
+  <view class="welcome-container safe-area-inset">
+    <view class="content">
+      <view class="logo-container">
+        <view class="logo-background"></view>
+        <image class="logo" src="/assets/images/logo.png" mode="aspectFit"></image>
+        <view class="logo-ring"></view>
+      </view>
+      
+      <view class="title-container">
+        <text class="title">读书笔记</text>
+        <text class="subtitle">记录阅读的每一个精彩瞬间</text>
+      </view>
+
+      <view class="feature-list">
+        <view class="feature-item">
+          <text class="feature-icon">✍️</text>
+          <text class="feature-text">文字笔记</text>
+        </view>
+        <view class="feature-item">
+          <text class="feature-icon">🎤</text>
+          <text class="feature-text">语音记录</text>
+        </view>
+        <view class="feature-item">
+          <text class="feature-icon">📚</text>
+          <text class="feature-text">书籍管理</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="button-container safe-area-bottom">
+      <button class="enter-button" bindtap="onEnterTap">开启阅读之旅</button>
+    </view>
+  </view>
+</view> 

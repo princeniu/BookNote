@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="page">
+  <!-- 顶部欢迎区域 -->
+  <view class="header">
+    <view class="greeting">
+      <text class="greeting-text">今天想记录些什么？</text>
+    </view>
+  </view>
+
+  <!-- 主要功能入口 -->
+  <view class="feature-entries">
+    <view class="entry-card" hover-class="entry-card-hover" bindtap="onTextNoteTap">
+      <view class="entry-icon">✍️</view>
+      <view class="entry-content">
+        <text class="entry-title">文字笔记</text>
+        <text class="entry-desc">记录此刻的读书感悟</text>
+      </view>
+      <view class="entry-arrow">→</view>
+    </view>
+
+    <view class="entry-card" hover-class="entry-card-hover" bindtap="onVoiceNoteTap">
+      <view class="entry-icon">🎤</view>
+      <view class="entry-content">
+        <text class="entry-title">语音笔记</text>
+        <text class="entry-desc">用语音记录读书心得</text>
+      </view>
+      <view class="entry-arrow">→</view>
+    </view>
+  </view>
+
+  <!-- 最近笔记区域 -->
+  <view class="recent-section">
+    <view class="section-header">
+      <text class="section-title">最近笔记</text>
+      <view class="section-more" hover-class="text-hover" bindtap="onViewMoreTap">查看更多</view>
+    </view>
+
+    <view class="book-list">
+      <view class="book-card" hover-class="book-card-hover" wx:for="{{recentBooks}}" wx:key="id" bindtap="onBookTap" data-id="{{item.id}}">
+        <view class="book-info">
+          <image class="book-cover" src="{{item.coverUrl}}" mode="aspectFill"></image>
+          <view class="book-content">
+            <text class="book-title">{{item.title}}</text>
+            <text class="book-note-count">{{item.noteCount}}条笔记</text>
+          </view>
+        </view>
+        <view class="book-arrow">→</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态提示 -->
+  <view class="empty-state" wx:if="{{recentBooks.length === 0}}">
+    <image class="empty-image" src="/assets/images/empty-state.png" mode="aspectFit"></image>
+    <text class="empty-text">还没有笔记，开始记录吧</text>
+  </view>
+</view>

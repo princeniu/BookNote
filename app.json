@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/books/books",
+    "pages/profile/profile",
+    "pages/note/text/text",
+    "pages/note/detail/detail",
+    "pages/book/add/add"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "读书笔记",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4A90E2",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/images/home.png",
+        "selectedIconPath": "assets/images/home-active.png"
+      },
+      {
+        "pagePath": "pages/books/books",
+        "text": "图书",
+        "iconPath": "assets/images/books.png",
+        "selectedIconPath": "assets/images/books-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/images/profile.png",
+        "selectedIconPath": "assets/images/profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy",
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

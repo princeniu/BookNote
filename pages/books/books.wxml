@@ -1,0 +1,72 @@
+<!--pages/books/books.wxml-->
+<view class="page">
+  <!-- 顶部标题区域 -->
+  <view class="header">
+    <text class="title">我的书架</text>
+    <view class="search-bar">
+      <view class="search-input-wrap">
+        <text class="search-icon">🔍</text>
+        <input 
+          class="search-input" 
+          placeholder="搜索书名或作者" 
+          placeholder-class="search-placeholder"
+          bindinput="onSearchInput"
+          value="{{searchKeyword}}"
+          confirm-type="search"
+          bindconfirm="onSearch"
+        />
+        <view class="clear-button" bindtap="onClearSearch" wx:if="{{searchKeyword}}">
+          <text class="clear-icon">×</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 书籍列表区域 -->
+  <scroll-view 
+    class="book-list" 
+    scroll-y 
+    enable-flex 
+    enhanced 
+    show-scrollbar="{{false}}"
+    bindscrolltolower="onLoadMore"
+  >
+    <view class="book-list-content">
+      <block wx:if="{{books.length > 0}}">
+        <block wx:if="{{filteredBooks.length > 0}}">
+          <view class="book-card" 
+            wx:for="{{filteredBooks}}" 
+            wx:key="id"
+            bindtap="onBookTap"
+            data-book="{{item}}"
+          >
+            <image class="book-cover" src="{{item.coverUrl}}" mode="aspectFill"></image>
+            <view class="book-info">
+              <text class="book-title">{{item.title}}</text>
+              <text class="book-author">{{item.author}}</text>
+              <view class="book-stats">
+                <text class="note-count">{{item.noteCount || 0}} 条笔记</text>
+                <text class="update-time">{{item.lastUpdateTime || '尚未添加笔记'}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view wx:else class="search-empty">
+          <view class="empty-icon">🔍</view>
+          <text class="empty-text">未找到相关书籍</text>
+          <text class="empty-subtext">换个关键词试试吧</text>
+        </view>
+      </block>
+      <view wx:else class="empty-tip">
+        <view class="empty-icon">📚</view>
+        <text class="empty-text">还没有添加任何书籍</text>
+        <text class="empty-subtext">点击右下角按钮添加你的第一本书</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 添加书籍按钮 -->
+  <view class="add-button" bindtap="onAddBook">
+    <text class="add-icon">+</text>
+  </view>
+</view>

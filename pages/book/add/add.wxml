@@ -1,0 +1,62 @@
+<!--pages/book/add/add.wxml-->
+<view class="page">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+    <view class="nav-content">
+      <view class="back-button" bindtap="onBackTap">
+        <text class="back-icon">←</text>
+      </view>
+      <text class="nav-title">添加新书</text>
+      <view class="placeholder"></view>
+    </view>
+  </view>
+
+  <!-- 表单区域 -->
+  <view class="form-container">
+    <!-- 书籍封面 -->
+    <view class="cover-section" style="position: relative; left: 0rpx; top: 83rpx">
+      <view class="section-title">书籍封面</view>
+      <view class="cover-upload" bindtap="onChooseImage">
+        <image class="cover-image" 
+          src="{{coverUrl || '/assets/images/default-cover.png'}}" 
+          mode="aspectFill">
+        </image>
+        <view class="upload-tip" wx:if="{{!coverUrl}}">
+          <view class="upload-icon">+</view>
+          <text class="upload-text">上传封面</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 书籍信息 -->
+    <view class="info-section" style="position: relative; left: 0rpx; top: 68rpx">
+      <view class="form-item">
+        <view class="form-label">书名</view>
+        <input class="form-input" 
+          placeholder="请输入书名" 
+          value="{{title}}"
+          bindinput="onTitleInput"
+        />
+      </view>
+
+      <view class="form-item">
+        <view class="form-label">作者</view>
+        <input class="form-input" 
+          placeholder="请输入作者" 
+          value="{{author}}"
+          bindinput="onAuthorInput"
+        />
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-bar safe-area-bottom">
+    <button class="save-button {{canSave ? '' : 'disabled'}}" 
+      bindtap="onSave" 
+      disabled="{{!canSave}}"
+      hover-class="{{canSave ? 'button-hover' : ''}}">
+      保存
+    </button>
+  </view>
+</view>

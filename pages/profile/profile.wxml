@@ -1,0 +1,71 @@
+<!--pages/profile/profile.wxml-->
+<view class="page">
+  <!-- 用户信息区域 -->
+  <view class="user-section">
+    <view class="avatar-wrap">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/assets/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="edit-avatar" bindtap="onChooseAvatar">
+        <text class="edit-icon">📷</text>
+      </view>
+    </view>
+    <view class="user-info">
+      <text class="nickname">{{userInfo.nickName || '点击登录'}}</text>
+      <text class="user-desc">{{userInfo.signature || '记录你的阅读足迹'}}</text>
+    </view>
+  </view>
+
+  <!-- 统计信息 -->
+  <view class="stats-section">
+    <view class="stat-item">
+      <text class="stat-num">{{stats.bookCount || 0}}</text>
+      <text class="stat-label">在读书籍</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-num">{{stats.noteCount || 0}}</text>
+      <text class="stat-label">笔记数量</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-num">{{stats.dayCount || 0}}</text>
+      <text class="stat-label">阅读天数</text>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="feature-list">
+    <view class="feature-group">
+      <view class="feature-item" bindtap="onEditProfile">
+        <view class="feature-icon">👤</view>
+        <text class="feature-name">编辑资料</text>
+        <text class="feature-arrow">→</text>
+      </view>
+      <view class="feature-item" bindtap="onMyNotes">
+        <view class="feature-icon">📝</view>
+        <text class="feature-name">我的笔记</text>
+        <text class="feature-arrow">→</text>
+      </view>
+      <view class="feature-item" bindtap="onReadingStats">
+        <view class="feature-icon">📊</view>
+        <text class="feature-name">阅读统计</text>
+        <text class="feature-arrow">→</text>
+      </view>
+    </view>
+
+    <view class="feature-group">
+      <view class="feature-item" bindtap="onSettings">
+        <view class="feature-icon">⚙️</view>
+        <text class="feature-name">设置</text>
+        <text class="feature-arrow">→</text>
+      </view>
+      <view class="feature-item" bindtap="onFeedback">
+        <view class="feature-icon">💬</view>
+        <text class="feature-name">意见反馈</text>
+        <text class="feature-arrow">→</text>
+      </view>
+      <view class="feature-item" bindtap="onAbout">
+        <view class="feature-icon">ℹ️</view>
+        <text class="feature-name">关于</text>
+        <text class="feature-arrow">→</text>
+      </view>
+    </view>
+  </view>
+</view>
