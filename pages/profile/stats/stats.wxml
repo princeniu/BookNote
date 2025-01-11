@@ -1,0 +1,115 @@
+<view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+  <view class="nav-content">
+    <view class="back-button" bindtap="onBackTap">
+      <text class="back-icon">←</text>
+    </view>
+    <text class="nav-title">阅读统计</text>
+    <view class="placeholder"></view>
+  </view>
+</view>
+
+<scroll-view 
+  class="page" 
+  scroll-y 
+  enable-flex 
+  enhanced 
+  show-scrollbar="{{false}}"
+  bounces="{{true}}"
+  enable-passive
+>
+  <!-- 总览统计卡片 -->
+  <view class="overview-card">
+    <view class="overview-header">
+      <text class="overview-title">阅读总览</text>
+      <text class="overview-subtitle">{{currentYear}}年</text>
+    </view>
+    <view class="overview-grid">
+      <view class="stat-item">
+        <text class="stat-num">{{stats.totalBooks}}</text>
+        <text class="stat-label">在读书籍</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{stats.totalNotes}}</text>
+        <text class="stat-label">笔记数量</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{stats.totalDays}}</text>
+        <text class="stat-label">阅读天数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{stats.averageNotesPerDay}}</text>
+        <text class="stat-label">平均笔记/天</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 月度统计 -->
+  <view class="monthly-section">
+    <view class="section-header">
+      <text class="section-title">月度统计</text>
+      <picker mode="date" fields="month" value="{{currentDate}}" bindchange="onMonthChange">
+        <view class="month-picker">
+          <text class="month-text">{{currentYear}}年{{currentMonth}}月</text>
+          <text class="picker-arrow">▼</text>
+        </view>
+      </picker>
+    </view>
+    <view class="monthly-card">
+      <view class="monthly-grid">
+        <view class="monthly-item">
+          <text class="monthly-num">{{monthlyStats.days}}</text>
+          <text class="monthly-label">阅读天数</text>
+        </view>
+        <view class="monthly-item">
+          <text class="monthly-num">{{monthlyStats.notes}}</text>
+          <text class="monthly-label">笔记数量</text>
+        </view>
+        <view class="monthly-item">
+          <text class="monthly-num">{{monthlyStats.books}}</text>
+          <text class="monthly-label">阅读书籍</text>
+        </view>
+      </view>
+      <!-- 日历热力图 -->
+      <view class="heatmap">
+        <view class="weekdays">
+          <text wx:for="{{weekdays}}" wx:key="*this" class="weekday">{{item}}</text>
+        </view>
+        <view class="calendar-grid">
+          <view class="day-column" wx:for="{{heatmapData}}" wx:key="week" wx:for-item="week">
+            <block wx:for="{{week}}" wx:key="date" wx:for-item="day">
+              <view class="day-cell {{day.count > 0 ? 'active level-' + day.level : ''}}">
+                <view class="day-tooltip" wx:if="{{day.count > 0}}">
+                  {{day.date}}: {{day.count}}条笔记
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 阅读书籍排行 -->
+  <view class="ranking-section">
+    <view class="section-header">
+      <text class="section-title">阅读书籍排行</text>
+      <text class="section-subtitle">按笔记数量</text>
+    </view>
+    <view class="book-list">
+      <view class="book-item" 
+        wx:for="{{bookRanking}}" 
+        wx:key="id"
+        bindtap="onBookTap"
+        data-book="{{item}}"
+      >
+        <view class="rank-num">{{index + 1}}</view>
+        <image class="book-cover" src="{{item.coverUrl}}" mode="aspectFill"></image>
+        <view class="book-info">
+          <text class="book-title">{{item.title}}</text>
+          <text class="book-notes">{{item.noteCount}}条笔记</text>
+        </view>
+        <text class="book-arrow">→</text>
+      </view>
+    </view>
+  </view>
+</scroll-view> 

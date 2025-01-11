@@ -1,0 +1,91 @@
+<view class="page">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+    <view class="nav-content">
+      <view class="back-button" bindtap="onBackTap">
+        <text class="back-icon">←</text>
+      </view>
+      <text class="nav-title">我的笔记</text>
+      <view class="placeholder"></view>
+    </view>
+  </view>
+
+  <!-- 搜索和筛选区域 -->
+  <view class="search-section" style="position: sticky; left: NaNrpx; top: 176rpx">
+    <view class="search-bar">
+      <view class="search-input-wrap">
+        <text class="search-icon">🔍</text>
+        <input 
+          class="search-input" 
+          placeholder="搜索笔记内容" 
+          placeholder-class="search-placeholder"
+          bindinput="onSearchInput"
+          value="{{searchKeyword}}"
+          confirm-type="search"
+          bindconfirm="onSearch"
+        />
+        <view class="clear-button" bindtap="onClearSearch" wx:if="{{searchKeyword}}">
+          <text class="clear-icon">×</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 筛选标签 -->
+    <scroll-view class="filter-tags" scroll-x enable-flex show-scrollbar="{{false}}">
+      <view class="tag {{currentBookId === '' ? 'active' : ''}}" 
+        bindtap="onTagTap" 
+        data-id="">
+        全部笔记
+      </view>
+      <view class="tag {{currentBookId === book.id ? 'active' : ''}}" 
+        wx:for="{{books}}" 
+        wx:key="id"
+        wx:for-item="book"
+        bindtap="onTagTap"
+        data-id="{{book.id}}">
+        {{book.title}}
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 笔记列表 -->
+  <scroll-view 
+    class="note-list" 
+    scroll-y 
+    enable-flex 
+    enhanced 
+    show-scrollbar="{{false}}"
+    bindscrolltolower="onLoadMore"
+  >
+    <view class="note-list-content" style="position: relative; left: 0rpx; top: 88rpx">
+      <block wx:if="{{filteredNotes.length > 0}}">
+        <view class="note-card" 
+          wx:for="{{filteredNotes}}" 
+          wx:key="id"
+          bindtap="onNoteTap"
+          data-note="{{item}}"
+        >
+          <view class="note-header">
+            <image class="book-cover" src="{{item.book.coverUrl}}" mode="aspectFill"></image>
+            <view class="note-info">
+              <text class="book-title">{{item.book.title}}</text>
+              <text class="note-time">{{item.createTimeFormatted}}</text>
+            </view>
+          </view>
+          <view class="note-content">{{item.content}}</view>
+        </view>
+      </block>
+      <view wx:else class="empty-state">
+        <view class="empty-icon">📝</view>
+        <text class="empty-text">{{searchKeyword ? '未找到相关笔记' : '还没有添加任何笔记'}}</text>
+        <text class="empty-subtext">{{searchKeyword ? '换个关键词试试吧' : '去首页添加你的第一条笔记'}}</text>
+        <button wx:if="{{!searchKeyword}}" class="add-note-button" bindtap="onAddNote">写笔记</button>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 悬浮添加按钮 -->
+  <view class="fab-button" bindtap="onAddNote" wx:if="{{filteredNotes.length > 0}}">
+    <text class="fab-icon">+</text>
+  </view>
+</view> 

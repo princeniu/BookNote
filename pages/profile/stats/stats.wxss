@@ -1,0 +1,346 @@
+/* pages/profile/stats/stats.wxss */
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.nav-content {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+
+.back-button {
+  padding: 20rpx;
+  margin: -20rpx;
+}
+
+.back-icon {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.placeholder {
+  width: 56rpx;
+}
+
+/* 页面内容 */
+.page {
+  height: 100vh;
+  background: #f8f9fa;
+  padding: 30rpx;
+  box-sizing: border-box;
+  padding-top: calc(env(safe-area-inset-top) + 120px);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 30rpx);
+}
+
+page {
+  height: 100vh;
+  background: #f8f9fa;
+}
+
+/* 总览统计卡片 */
+.overview-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.overview-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.overview-subtitle {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30rpx;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+}
+
+.stat-num {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 月度统计 */
+.monthly-section {
+  margin-bottom: 30rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.month-picker {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 8rpx 20rpx;
+  border-radius: 28rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.month-text {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 8rpx;
+}
+
+.picker-arrow {
+  font-size: 20rpx;
+  color: #999;
+}
+
+.monthly-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.monthly-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.monthly-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+}
+
+.monthly-num {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.monthly-label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 热力图 */
+.heatmap {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.weekdays {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10rpx;
+}
+
+.weekday {
+  width: 30rpx;
+  height: 44rpx;
+  font-size: 22rpx;
+  color: #999;
+  text-align: center;
+  line-height: 44rpx;
+  margin: 2rpx 0;
+}
+
+.calendar-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: auto;
+}
+
+.day-column {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2rpx;
+}
+
+.day-cell {
+  width: 44rpx;
+  height: 44rpx;
+  margin: 2rpx;
+  background: #f0f0f0;
+  border-radius: 6rpx;
+  position: relative;
+}
+
+.day-cell.active {
+  background: #4a90e2;
+}
+
+.day-cell.level-1 {
+  opacity: 0.2;
+}
+.day-cell.level-2 {
+  opacity: 0.4;
+}
+.day-cell.level-3 {
+  opacity: 0.6;
+}
+.day-cell.level-4 {
+  opacity: 0.8;
+}
+.day-cell.level-5 {
+  opacity: 1;
+}
+
+.day-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: 120%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8rpx 12rpx;
+  border-radius: 8rpx;
+  font-size: 20rpx;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.day-cell:hover .day-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 阅读书籍排行 */
+.ranking-section {
+  margin-bottom: 30rpx;
+}
+
+.section-subtitle {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 12rpx;
+}
+
+.book-list {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.book-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.book-item:last-child {
+  border-bottom: none;
+}
+
+.book-item:active {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.rank-num {
+  width: 40rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-right: 20rpx;
+}
+
+.book-cover {
+  width: 80rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.book-notes {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.book-arrow {
+  font-size: 28rpx;
+  color: #bbb;
+  margin-left: 12rpx;
+}

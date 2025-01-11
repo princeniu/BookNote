@@ -1,0 +1,89 @@
+<!--pages/book/detail/detail.wxml-->
+<view class="page">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+    <view class="nav-content">
+      <view class="back-button" bindtap="onBackTap">
+        <text class="back-icon">←</text>
+      </view>
+      <text class="nav-title">书籍详情</text>
+      <view class="more-button" bindtap="showActionSheet">
+        <text class="more-icon">⋮</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 书籍信息 -->
+  <view class="book-info">
+    <image class="book-cover" src="{{book.coverUrl}}" mode="aspectFill"></image>
+    <view class="book-meta">
+      <text class="book-title">{{book.title}}</text>
+      <text class="book-author">{{book.author}}</text>
+      <view class="book-stats">
+        <view class="stat-item">
+          <text class="stat-num">{{noteCount}}</text>
+          <text class="stat-label">笔记</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-num">{{readingDays}}</text>
+          <text class="stat-label">阅读天数</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 笔记列表 -->
+  <view class="notes-section">
+    <view class="section-header">
+      <text class="section-title">阅读笔记</text>
+      <view class="add-note" bindtap="showNoteOptions">
+        <text class="add-icon">+</text>
+        <text class="add-text">添加笔记</text>
+      </view>
+    </view>
+
+    <scroll-view class="note-list" scroll-y enable-flex enhanced show-scrollbar="{{false}}">
+      <block wx:if="{{notes.length > 0}}">
+        <view class="note-item" 
+          wx:for="{{notes}}" 
+          wx:key="id"
+          bindtap="onNoteTap"
+          data-note="{{item}}">
+          <view class="note-type-icon">{{item.type === 'text' ? '📝' : '🎙️'}}</view>
+          <view class="note-content">
+            <text class="note-text" wx:if="{{item.type === 'text'}}">{{item.content}}</text>
+            <view class="voice-info" wx:else>
+              <text class="voice-duration">{{item.recordings[0].duration}}″ 语音笔记</text>
+            </view>
+            <text class="note-time">{{item.createTimeFormatted}}</text>
+          </view>
+        </view>
+      </block>
+      <view wx:else class="empty-state">
+        <view class="empty-icon">📝</view>
+        <text class="empty-text">还没有添加笔记</text>
+        <text class="empty-subtext">点击上方按钮添加第一条笔记</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 笔记类型选择弹窗 -->
+  <view class="note-options {{showOptions ? 'show' : ''}}" bindtap="hideNoteOptions">
+    <view class="options-content" catchtap="stopPropagation">
+      <view class="option-item" bindtap="onAddTextNote">
+        <view class="option-icon">📝</view>
+        <view class="option-info">
+          <text class="option-title">文字笔记</text>
+          <text class="option-desc">记录读书心得和感悟</text>
+        </view>
+      </view>
+      <view class="option-item" bindtap="onAddVoiceNote">
+        <view class="option-icon">🎙️</view>
+        <view class="option-info">
+          <text class="option-title">语音笔记</text>
+          <text class="option-desc">用语音快速记录想法</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

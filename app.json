@@ -6,7 +6,15 @@
     "pages/profile/profile",
     "pages/note/text/text",
     "pages/note/detail/detail",
-    "pages/book/add/add"
+    "pages/book/add/add",
+    "pages/profile/edit/edit",
+    "pages/note/list/list",
+    "pages/profile/stats/stats",
+    "pages/note/voice/voice",
+    "pages/book/detail/detail",
+    "pages/profile/settings/settings",
+    "pages/profile/feedback/feedback",
+    "pages/profile/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,6 +47,11 @@
         "selectedIconPath": "assets/images/profile-active.png"
       }
     ]
+  },
+  "permission": {
+    "scope.record": {
+      "desc": "用于录制语音笔记"
+    }
   },
   "style": "v2",
   "renderer": "skyline",

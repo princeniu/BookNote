@@ -1,0 +1,195 @@
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.nav-content {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+
+.back-button {
+  padding: 20rpx;
+  margin: -20rpx;
+}
+
+.back-icon {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.placeholder {
+  width: 56rpx;
+}
+
+/* 页面内容 */
+.page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: calc(env(safe-area-inset-top) + 44px + 30rpx) 30rpx
+    env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+/* 应用信息 */
+.app-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.app-logo {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.app-name {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.app-version {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 功能介绍 */
+.feature-list {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30rpx;
+}
+
+.feature-item:last-child {
+  margin-bottom: 0;
+}
+
+.feature-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+  margin-top: 4rpx;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.feature-desc {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* 开发信息 */
+.dev-info {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 版权信息 */
+.copyright {
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.copyright text {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.5;
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .page {
+    background: #1a1a1a;
+  }
+
+  .custom-nav,
+  .feature-list,
+  .dev-info {
+    background: #2a2a2a;
+  }
+
+  .nav-title,
+  .app-name,
+  .feature-title,
+  .info-value {
+    color: #fff;
+  }
+
+  .back-icon {
+    color: #ccc;
+  }
+
+  .app-version,
+  .copyright text {
+    color: #888;
+  }
+
+  .feature-desc {
+    color: #aaa;
+  }
+
+  .info-label {
+    color: #999;
+  }
+}

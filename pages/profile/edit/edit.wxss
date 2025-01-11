@@ -1,0 +1,181 @@
+/* pages/profile/edit/edit.wxss */
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.nav-content {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+
+.back-button {
+  padding: 20rpx;
+  margin: -20rpx;
+}
+
+.back-icon {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.placeholder {
+  width: 56rpx;
+}
+
+/* 页面内容 */
+.page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: calc(env(safe-area-inset-top) + 44px + 30rpx) 30rpx
+    env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+.form-container {
+  margin-bottom: 120rpx;
+}
+
+/* 头像区域 */
+.avatar-section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.avatar-upload {
+  width: 160rpx;
+  height: 160rpx;
+  position: relative;
+  border-radius: 80rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+}
+
+.upload-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12rpx;
+}
+
+.upload-text {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+/* 基本信息 */
+.info-section {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+  position: relative;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.form-input {
+  height: 80rpx;
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.form-textarea {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  font-size: 28rpx;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 160rpx;
+}
+
+.word-count {
+  position: absolute;
+  right: 0;
+  bottom: -30rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 底部按钮 */
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  padding: 20rpx 30rpx calc(20rpx + env(safe-area-inset-bottom));
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.save-button {
+  background: #4a90e2;
+  color: white;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  padding: 20rpx 0;
+  width: 100%;
+  border: none;
+}
+
+.save-button.disabled {
+  background: #ccc;
+  opacity: 0.8;
+}
+
+.button-hover {
+  opacity: 0.9;
+  transform: scale(0.98);
+}

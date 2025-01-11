@@ -1,0 +1,65 @@
+<!--pages/profile/edit/edit.wxml-->
+<view class="page">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+    <view class="nav-content">
+      <view class="back-button" bindtap="onBackTap">
+        <text class="back-icon">←</text>
+      </view>
+      <text class="nav-title">编辑资料</text>
+      <view class="placeholder"></view>
+    </view>
+  </view>
+
+  <!-- 表单区域 -->
+  <view class="form-container" style="position: relative; left: 0rpx; top: 85rpx">
+    <!-- 头像区域 -->
+    <view class="avatar-section">
+      <view class="section-title">头像</view>
+      <view class="avatar-upload" bindtap="onChooseAvatar">
+        <image class="avatar" 
+          src="{{userInfo.avatarUrl || '/assets/images/default-avatar.png'}}" 
+          mode="aspectFill">
+        </image>
+        <view class="upload-mask">
+          <text class="upload-text">点击更换</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 基本信息 -->
+    <view class="info-section">
+      <view class="form-item">
+        <view class="form-label">昵称</view>
+        <input class="form-input" 
+          placeholder="请输入昵称" 
+          value="{{userInfo.nickName}}"
+          bindinput="onNickNameInput"
+          maxlength="20"
+        />
+      </view>
+
+      <view class="form-item">
+        <view class="form-label">个性签名</view>
+        <textarea class="form-textarea" 
+          placeholder="写一句话介绍自己" 
+          value="{{userInfo.signature}}"
+          bindinput="onSignatureInput"
+          maxlength="50"
+          auto-height
+        ></textarea>
+        <view class="word-count">{{signatureLength}}/50</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-bar safe-area-bottom">
+    <button class="save-button {{canSave ? '' : 'disabled'}}" 
+      bindtap="onSave" 
+      disabled="{{!canSave}}"
+      hover-class="{{canSave ? 'button-hover' : ''}}">
+      保存
+    </button>
+  </view>
+</view> 

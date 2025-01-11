@@ -1,0 +1,84 @@
+<view class="page">
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+    <view class="nav-content">
+      <view class="back-button" bindtap="onBackTap">
+        <text class="back-icon">←</text>
+      </view>
+      <text class="nav-title">意见反馈</text>
+      <view class="placeholder"></view>
+    </view>
+  </view>
+
+  <!-- 反馈内容 -->
+  <view class="feedback-content">
+    <!-- 反馈类型选择 -->
+    <view class="feedback-type">
+      <view class="type-title">反馈类型</view>
+      <view class="type-options">
+        <view 
+          class="type-item {{selectedType === type.value ? 'active' : ''}}" 
+          wx:for="{{feedbackTypes}}" 
+          wx:key="value" 
+          wx:for-item="type"
+          data-type="{{type.value}}"
+          bindtap="onTypeSelect"
+        >
+          {{type.label}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 反馈描述 -->
+    <view class="feedback-input">
+      <view class="input-title">问题描述</view>
+      <textarea 
+        class="input-content" 
+        placeholder="请详细描述您遇到的问题或建议..."
+        placeholder-class="placeholder"
+        maxlength="500"
+        bindinput="onContentInput"
+        value="{{content}}"
+      ></textarea>
+      <view class="word-count">{{content.length}}/500</view>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="contact-input">
+      <view class="input-title">联系方式（选填）</view>
+      <input 
+        class="contact-content"
+        placeholder="请留下您的微信号或邮箱，方便我们回复"
+        placeholder-class="placeholder"
+        maxlength="50"
+        bindinput="onContactInput"
+        value="{{contact}}"
+      />
+    </view>
+
+    <!-- 图片上传 -->
+    <view class="image-upload">
+      <view class="input-title">上传截图（选填，最多3张）</view>
+      <view class="image-list">
+        <view class="image-item" wx:for="{{images}}" wx:key="*this">
+          <image src="{{item}}" mode="aspectFill" bindtap="onPreviewImage" data-url="{{item}}"></image>
+          <view class="delete-btn" catchtap="onDeleteImage" data-index="{{index}}">×</view>
+        </view>
+        <view class="upload-btn" bindtap="onChooseImage" wx:if="{{images.length < 3}}">
+          <text class="upload-icon">+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-bar safe-area-bottom">
+    <button 
+      class="submit-button {{canSubmit ? '' : 'disabled'}}" 
+      bindtap="onSubmit"
+      disabled="{{!canSubmit}}"
+    >
+      提交反馈
+    </button>
+  </view>
+</view> 

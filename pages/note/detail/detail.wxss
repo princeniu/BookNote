@@ -1,1 +1,232 @@
 /* pages/note/detail/detail.wxss */
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.nav-content {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+
+.back-button {
+  padding: 20rpx;
+  margin: -20rpx;
+}
+
+.back-icon {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.more-button {
+  padding: 20rpx;
+  margin: -20rpx;
+}
+
+.more-icon {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 页面内容 */
+.page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: calc(env(safe-area-inset-top) + 44px + 30rpx) 30rpx
+    env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+/* 书籍信息 */
+.book-info {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.book-cover {
+  width: 120rpx;
+  height: 160rpx;
+  border-radius: 12rpx;
+  margin-right: 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.book-meta {
+  flex: 1;
+}
+
+.book-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.book-author {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 笔记内容 */
+.note-content {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.note-time {
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.time-label {
+  margin-right: 8rpx;
+}
+
+.time-value {
+  color: #666;
+  margin-right: 8rpx;
+}
+
+/* 文本笔记 */
+.text-content {
+  line-height: 1.6;
+}
+
+.text {
+  font-size: 30rpx;
+  color: #333;
+  text-align: justify;
+}
+
+/* 语音笔记 */
+.voice-content {
+  margin-top: 20rpx;
+}
+
+.voice-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.voice-info {
+  display: flex;
+  align-items: center;
+}
+
+.voice-duration {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 500;
+  margin-right: 20rpx;
+}
+
+.voice-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.voice-controls {
+  display: flex;
+  align-items: center;
+}
+
+.control-button {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+}
+
+.control-button.play {
+  background: #4a90e2;
+}
+
+.control-button.play .control-icon {
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.control-button.pause {
+  background: #f8f9fa;
+}
+
+.control-button.pause .control-icon {
+  color: #666;
+  font-size: 24rpx;
+}
+
+/* 操作按钮 */
+.action-buttons {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.action-button {
+  flex: 1;
+  margin: 0 10rpx;
+  height: 88rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.action-button.edit {
+  background: #4a90e2;
+  color: #fff;
+}
+
+.action-button.share {
+  background: #f8f9fa;
+  color: #333;
+}
+
+.button-icon {
+  font-size: 32rpx;
+  margin-right: 8rpx;
+}

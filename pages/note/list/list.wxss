@@ -1,0 +1,262 @@
+/* pages/note/list/list.wxss */
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 100;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.nav-content {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+}
+
+.back-button {
+  padding: 20rpx;
+  margin: -20rpx;
+}
+
+.back-icon {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.placeholder {
+  width: 56rpx;
+}
+
+/* 页面内容 */
+.page {
+  min-height: 100vh;
+  background: #f8f9fa;
+  padding: calc(env(safe-area-inset-top) + 44px) 0 env(safe-area-inset-bottom);
+  box-sizing: border-box;
+}
+
+/* 搜索区域 */
+.search-section {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  position: sticky;
+  top: calc(env(safe-area-inset-top) + 44px);
+  z-index: 99;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-bar {
+  margin-bottom: 20rpx;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 16rpx;
+  padding: 16rpx 24rpx;
+  transition: all 0.3s ease;
+}
+
+.search-input-wrap:focus-within {
+  background: #fff;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+  color: #999;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+  height: 36rpx;
+  min-height: 36rpx;
+}
+
+.search-placeholder {
+  color: #999;
+}
+
+.clear-button {
+  padding: 10rpx;
+  margin: -10rpx -10rpx -10rpx 10rpx;
+}
+
+.clear-icon {
+  font-size: 36rpx;
+  color: #999;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* 筛选标签 */
+.filter-tags {
+  white-space: nowrap;
+  margin: 0 -30rpx;
+  padding: 0 30rpx;
+}
+
+.tag {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  background: #f5f5f5;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 16rpx;
+  transition: all 0.3s ease;
+}
+
+.tag.active {
+  background: #4a90e2;
+  color: #fff;
+}
+
+/* 笔记列表 */
+.note-list {
+  height: calc(100vh - env(safe-area-inset-top) - 44px - 140rpx);
+}
+
+.note-list-content {
+  padding: 20rpx 30rpx;
+}
+
+.note-card {
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.note-card:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+.note-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.book-cover {
+  width: 80rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.note-info {
+  flex: 1;
+}
+
+.book-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.note-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.note-content {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 30rpx;
+  color: #999;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 16rpx;
+  font-weight: 500;
+}
+
+.empty-subtext {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 40rpx;
+}
+
+.add-note-button {
+  background: #4a90e2;
+  color: white;
+  font-size: 28rpx;
+  padding: 20rpx 40rpx;
+  border-radius: 40rpx;
+  border: none;
+}
+
+/* 悬浮按钮 */
+.fab-button {
+  position: fixed;
+  right: 40rpx;
+  bottom: calc(40rpx + env(safe-area-inset-bottom));
+  width: 100rpx;
+  height: 100rpx;
+  background: #4a90e2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(74, 144, 226, 0.3);
+  transition: all 0.3s ease;
+}
+
+.fab-button:active {
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+.fab-icon {
+  font-size: 60rpx;
+  color: #fff;
+  font-weight: 300;
+  line-height: 60rpx;
+  height: 60rpx;
+  width: 60rpx;
+  text-align: center;
+  margin-bottom: 4rpx;
+}
